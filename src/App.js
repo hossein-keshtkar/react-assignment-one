@@ -2,6 +2,9 @@ import React from "react";
 
 import "./App.css";
 import Card from "./components/Card";
+import { generateRandomNum } from "./functions/generateRandomNum";
+import { generateRandomColor } from "./functions/generateRandomColor";
+import { fetchQuotes } from "./functions/fetchQuotes";
 
 function App() {
   const [bgc, setBgc] = React.useState("#000");
@@ -13,39 +16,29 @@ function App() {
   ]);
   const [randomNum, setRandomNum] = React.useState(0);
 
-  const generateRandomNum = () => {
-    const randomNum = Math.floor(Math.random() * 100);
-    if (randomNum >= 16) generateRandomNum();
-    else {
-      // setRandomNum(randomNum);
-      return randomNum;
-    }
-  };
-
-  const randomColorGenerator = () =>
-    "#" + Math.floor(Math.random() * 16777215).toString(16);
-  // setBgc("#" + Math.floor(Math.random() * 16777215).toString(16));
-
-  const fetchQuote = async () => {
-    const res = await fetch("https://type.fit/api/quotes");
-    return await res.json();
-    // setQuotes(data);
-  };
-
   React.useEffect(() => {
-    generateRandomNum();
-    fetchQuote();
+    const rndNum = generateRandomNum();
+
+    const handleAsyncFunc = async () => {
+      setQuotes(await fetchQuotes());
+    };
+
+    handleAsyncFunc();
+    setRandomNum(rndNum);
+
+    console.log(rndNum);
   }, []);
 
   React.useEffect(() => {
-    randomColorGenerator();
+    setBgc(generateRandomColor());
+    console.log(bgc);
   }, [randomNum]);
 
   return (
     <div className="App" style={{ backgroundColor: bgc }}>
       <Card>
-        <h1 id="text">{quotes[randomNum].text}</h1>
-        <p id="author">{quotes[randomNum].author}</p>
+        {/* <h1 id="text">{quotes[randomNum].text}</h1>
+        <p id="author">{quotes[randomNum].author}</p> */}
         <div>
           <div>
             <button onClick={generateRandomNum} id="new-quote">

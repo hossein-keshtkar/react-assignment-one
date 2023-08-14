@@ -3,9 +3,9 @@
   color: #000;
   border-radius: 5px;
   text-align: center;
-  width: 35%;
+  min-width: 40%;
   min-height: 30vh;
-  padding: 15px;
+  padding: 30px;
 
   display: flex;
   flex-direction: column;
