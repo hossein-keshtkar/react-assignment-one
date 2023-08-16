@@ -4,7 +4,7 @@ import "./App.css";
 import Card from "./components/Card";
 import { generateRandomNum } from "./functions/generateRandomNum";
 import { generateRandomColor } from "./functions/generateRandomColor";
-import { fetchQuotes } from "./functions/fetchQuotes";
+import { fetchQuotes } from "./apis/fetchQuotes";
 
 function App() {
   const [bgc, setBgc] = React.useState("#000");

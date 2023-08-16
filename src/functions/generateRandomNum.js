@@ -1,7 +1,9 @@
 export const generateRandomNum = () => {
-  const randomNum = Math.floor(Math.random() * 100);
-  if (randomNum >= 16) generateRandomNum();
-  else {
-    return randomNum;
+  let rnd = 17;
+
+  while (rnd >= 16) {
+    rnd = Math.floor(Math.random() * 100);
   }
+
+  return rnd;
 };
