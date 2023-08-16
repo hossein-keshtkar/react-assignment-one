@@ -7,27 +7,23 @@ import { generateRandomColor } from "./functions/generateRandomColor";
 import { fetchQuotes } from "./apis/fetchQuotes";
 
 function App() {
-  const [bgc, setBgc] = React.useState("#000");
+  const [bgc, setBgc] = React.useState(generateRandomColor());
   const [quotes, setQuotes] = React.useState(undefined);
   const [randomNum, setRandomNum] = React.useState(0);
 
-  React.useEffect(() => {
-    const rndNum = generateRandomNum();
+  const handleClick = () => {
+    setRandomNum(generateRandomNum());
+    setBgc(generateRandomColor());
+  };
 
+  React.useEffect(() => {
     const handleAsyncFunc = async () => {
       setQuotes(await fetchQuotes());
     };
 
+    setRandomNum(generateRandomNum());
     handleAsyncFunc();
-    setRandomNum(rndNum);
-
-    console.log(rndNum);
   }, []);
-
-  React.useEffect(() => {
-    setBgc(generateRandomColor());
-    console.log(bgc);
-  }, [randomNum]);
 
   return (
     <div className="App" style={{ backgroundColor: bgc }}>
@@ -40,7 +36,7 @@ function App() {
         )}
         <div>
           <div>
-            <button onClick={generateRandomNum} id="new-quote">
+            <button onClick={handleClick} id="new-quote">
               New Quote
             </button>
           </div>
