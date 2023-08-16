@@ -8,12 +8,7 @@ import { fetchQuotes } from "./functions/fetchQuotes";
 
 function App() {
   const [bgc, setBgc] = React.useState("#000");
-  const [quotes, setQuotes] = React.useState([
-    {
-      text: "Say Hello to My Little Friend!",
-      author: "Tony Montana",
-    },
-  ]);
+  const [quotes, setQuotes] = React.useState(undefined);
   const [randomNum, setRandomNum] = React.useState(0);
 
   React.useEffect(() => {
@@ -37,8 +32,12 @@ function App() {
   return (
     <div className="App" style={{ backgroundColor: bgc }}>
       <Card>
-        {/* <h1 id="text">{quotes[randomNum].text}</h1>
-        <p id="author">{quotes[randomNum].author}</p> */}
+        {quotes && (
+          <div>
+            <h1 id="text">{quotes[randomNum].text}</h1>
+            <p id="author">{quotes[randomNum].author}</p>
+          </div>
+        )}
         <div>
           <div>
             <button onClick={generateRandomNum} id="new-quote">
