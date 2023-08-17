@@ -26,26 +26,29 @@ button {
   border: 0;
   cursor: pointer;
   padding: 5px 15px;
-  background-color: #03a9f4;
+  background-color: #000;
+  transition: all 0.5s ease;
   color: #fff;
 }
 
 button:hover {
-  background-color: #1d7ebe;
+  background-color: #333;
 }
 
 a {
   display: block;
-  width: 50px;
-  height: 50px;
+  text-align: left;
 }
 
-.twitter {
-  background: #000;
-  position: absolute;
-  left: 0;
-  width: 130px;
-  height: 130px;
+img {
+  transition: all 0.5s ease;
+  height: 40px;
+  width: 40px;
+}
+
+img:hover {
+  height: 42px;
+  width: 42px;
 }
 
 @media (min-width: 768px) {
