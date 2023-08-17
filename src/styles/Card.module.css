@@ -1,13 +1,55 @@
+* {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
 .container {
   background: #fff;
   color: #000;
   border-radius: 5px;
   text-align: center;
-  min-width: 40%;
+  max-width: 90%;
   min-height: 30vh;
   padding: 30px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+p {
+  margin-top: 10px;
+  text-align: right;
+}
+
+button {
+  margin-left: 10px;
+  border: 0;
+  cursor: pointer;
+  padding: 5px 15px;
+  background-color: #03a9f4;
+  color: #fff;
+}
+
+button:hover {
+  background-color: #1d7ebe;
+}
+
+a {
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+
+.twitter {
+  background: #000;
+  position: absolute;
+  left: 0;
+  width: 130px;
+  height: 130px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 60%;
+  }
 }
