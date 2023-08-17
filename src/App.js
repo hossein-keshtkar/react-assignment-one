@@ -33,7 +33,7 @@ function App() {
           <div>
             <h1 id="text">{quotes[randomNum].text}</h1>
             <p id="author">
-              <em>{quotes[randomNum].author}</em>
+              <em>{quotes[randomNum].author.replace(/, type\.fit$/, "")}</em>
             </p>
           </div>
         )}

@@ -32,12 +32,13 @@ button {
 }
 
 button:hover {
-  background-color: #333;
+  background-color: #444;
 }
 
 a {
   display: block;
-  text-align: left;
+  width: 40px;
+  height: 40px;
 }
 
 img {
